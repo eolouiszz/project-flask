@@ -1,0 +1,217 @@
+/* Definindo a fonte global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #f4f7fb;
+    color: #333;
+    line-height: 1.6;
+    height: 100vh;  /* A altura do body será 100% da altura da tela */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;  /* Impede a rolagem horizontal */
+    justify-content: space-between; /* Garante que o conteúdo e footer se distribuam na tela */
+}
+
+/* Animações globais */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Container principal com altura fixada */
+#main-content {
+    max-width: 900px;
+    height: 80vh;  /* Tamanho fixo para o conteúdo principal, 80% da altura da tela */
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Permite a rolagem vertical caso o conteúdo ultrapasse a altura */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Título principal */
+#main-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Descrição */
+#description {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    opacity: 0;
+    transform: translateX(-20px);
+    animation: fadeInLeft 1s ease-out forwards;
+}
+
+/* Links */
+#links {
+    margin-bottom: 30px;
+}
+
+#links .link-style {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: fadeInScale 1s ease-out forwards;
+}
+
+#links .link-style:hover {
+    color: #2980b9;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* Texto extra */
+#extra-info {
+    font-size: 1rem;
+    color: #7f8c8d;
+    margin-top: 40px;
+}
+
+/* Estilo de botão (exemplo de estilo para botões futuros) */
+.btn-custom {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.btn-custom:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #main-title {
+        font-size: 2rem;
+    }
+
+    #description {
+        font-size: 1rem;
+    }
+
+    #extra-info {
+        font-size: 0.9rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Footer */
+#footer {
+    background-color: #2c3e50;
+    color: #fff;
+    padding: 30px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin-top: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+#footer p {
+    font-size: 1rem;
+    margin: 10px 0;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards 0.3s;
+}
+
+#footer .link-style {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+#footer .link-style:hover {
+    color: #2980b9;
+    text-decoration: underline;
+    transform: scale(1.05);
+}
+
+/* Responsividade para o Footer */
+@media (max-width: 768px) {
+    #footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Definir a largura da barra de rolagem */
+#main-content::-webkit-scrollbar {
+    width: 10px;  /* Largura da barra de rolagem */
+}
+
+/* Definir a cor da trilha da barra de rolagem (parte de fundo) */
+#main-content::-webkit-scrollbar-track {
+    background-color: #f1f1f1;  /* Cor de fundo da trilha */
+    border-radius: 10px;         /* Bordas arredondadas */
+}
+
+/* Definir a cor da parte que o usuário pode arrastar (thumb) */
+#main-content::-webkit-scrollbar-thumb {
+    background-color: #3498db;  /* Cor da barra de rolagem */
+    border-radius: 10px;        /* Bordas arredondadas */
+}
+
+/* Alterar a cor do "thumb" quando o usuário passa o mouse sobre a barra */
+#main-content::-webkit-scrollbar-thumb:hover {
+    background-color: #265d81;  /* Cor ao passar o mouse */
+}
+
+/* Estilizando a barra de rolagem horizontal (se existir) */
+#main-content::-webkit-scrollbar-horizontal {
+    height: 5px;  /* Altura da barra de rolagem horizontal */
+}
+
+#main-content::-webkit-scrollbar-thumb:horizontal {
+    background-color: #3498db;  /* Cor da barra horizontal */
+}
